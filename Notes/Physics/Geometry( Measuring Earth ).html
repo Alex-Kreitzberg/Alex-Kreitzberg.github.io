@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Length and Distance</title>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script>
+<style type="text/css">
+    body{
+        margin:40px auto;
+        max-width:650px;
+        line-height:1.6;
+        font-size:18px;
+        color:#444;
+        padding:0 10px
+    }
+    h1,h2,h3{line-height:1.2}
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    </style>
+<h1>Geometry( Measuring the Earth )</h1>
+</head>
+<body>
+<!-- When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) 
+and they are $$x = {-b \pm \sqrt{b^2 - 4ac} \over 2a}.$$ -->
+
+<h2>The Moon is a sphere.</h2>
+
+<p>In 300 BC, one would look to the Moon to keep time. Oddly, the moon never looks the same:</p>
+<img class = "center" src="img/Lunar_libration_with_phase2.gif" alt="Phases of the moon, courtesy simple wikipedia">
+<p>Why? A modern reader may already see, but Aristotle required sagacity:</p>
+
+<p>"Sagacity is a hitting by guess upon the essential connection in an inappreciable time. 
+As for example, if you see a person talking with a rich man in a certain way, you may instantly guess that that person is trying to borrow money. 
+Or observing that the bright side of the moon is always toward the sun, you may suddenly perceive why this is; 
+namely, because the moon shines by the light of the sun." &#8211 Aristotle</p>
+
+<p>Perhaps a lucky observation "the moon shines by the light of the sun", and experience with balls illuminated by candles &#8211
+ inspired an analogy. Aristotle then perceiving the moon as round, saw the key relation, in a flash, a bright idea.</p>
+
+
+<p class = "center"> Move the slider!</p>
+<canvas id="flashlight_on_ball"></canvas>
+<script src = "js/three.js"></script>
+
+<input class = "center" id="flashlight_slider" min="0" max="6.28" step = "0.1" type="range">
+<script>
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        let canvas = document.getElementById("flashlight_on_ball");
+        let renderer = new THREE.WebGLRenderer({ canvas: canvas});
+        renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+        document.body.appendChild( renderer.domElement );
+    
+        let directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+        scene.add( directionalLight );
+        directionalLight.position.x = 1;
+        directionalLight.position.y = 0;
+        directionalLight.position.z = 0;
+    
+        let geometry = new THREE.SphereGeometry( 1, 128, 128 );
+        let material = new THREE.MeshLambertMaterial( { 
+            color: 0xffffff, 
+            emissive: 0xff000, 
+            emissiveIntensity: 0 } 
+        );
+        let cube = new THREE.Mesh( geometry, material);
+        scene.add( cube );
+        
+        camera.position.z = 5;
+    
+        let flashlight_slider = document.getElementById("flashlight_slider");
+    
+        let animate = function() {
+            requestAnimationFrame( animate );
+            let angle = flashlight_slider.value;
+            directionalLight.position.x = Math.cos(-angle -1.6 );
+            directionalLight.position.z = Math.sin(-angle -1.6);
+            renderer.render( scene, camera );
+        };
+        animate();
+    </script>
+<h2>Earth is a sphere.</h2>
+<p>Earth is similar. Aristotle saw Earth left a shadow on the moon.</p> 
+<img class = "center" src="img/2007-03-03_-_Lunar_Eclipse_small-43img.gif" alt="Lunar eclipses, courtesy wikipedia">
+<p>No matter the angle, Earth's shadow on the moon is round. This is only true of spheres. If Earth was a disk,
+some angles would give ellipses.</p>
+<p>*exploreable, letting user control light*</p>
+
+<p>A natural question follows, what's the circumference of these spheres? We wouldn't have the answers for another next century.</p>
+
+<h1>We can Find Earth's circumference.</h1>
+
+<p><a href="https://en.wikipedia.org/wiki/Eratosthenes">Eratosthenes</a> was a librarian in Alexandria. He read that at noon in Syene on the longest day of Summer &#8211 
+the pillars had no shadows, and the bottom of the well was lit by the light of the sun. 
+Interesting! Because he was curious, he observed pillars and wells in Alexandria at that same time of year.
+But, unlike in Syene, there were shadows.</p>
+
+<p>How could shadows be different on two parts of Earth? Did the author lie? It would be an odd thing to lie about.</p>
+
+<p>The answer: Earth is curved. We know from Aristotle that Earth is a sphere. If the light from the sun on Earth is parallel, then the shadows on Earth from pillars will be
+    determined by the angles of the pillars to the light. And thereby the angle of the surface of Earth to the light. This is exciting, but we already knew Earth was a sphere! 
+    Can we do better? We can.
+</p>
+
+<img src="img/Proof_earth_circumference.svg" alt="Equal interor angles gives angle of sector between Alexandria and Seyena">
+
+<p>The angle made between a ray of light on a column in Alexandria, was about a fiftieth of a circle. The angle of Earth's sector from Alexandria to Syene is the same! Why? Because it is an alternate interior angle to the Alexandrian angle. 
+Merchants traveled between Alexandria and Syene all the time, so it was important to know the distance between these cities. It is 5000 stadia. Being a fiftieth of a circle, all
+we need to calculate the circumference of Earth is the following:</p> 
+<p>5000 stadia \(\cdot\) 50 = 250000 stadia \(\approx\) 40,000 km. This is within 8% of the correct answer!</p>
+
+<h1>Enter Aristarchus</h1>
+
+<h2>We can Find the Moon's circumference.</h2>
+
+<h2>Total Solar eclipses help here.</h2>
+
+<h2>We can Find the distance to the Moon.</h2>
+
+<h2>We can Find the distance to the Sun.</h2>
+
+<h2>Using the total solar eclipse, we can find the size of the Sun.</h2>
+</body>
+</html>
