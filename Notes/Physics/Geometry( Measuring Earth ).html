@@ -44,12 +44,13 @@ namely, because the moon shines by the light of the sun." &#8211 Aristotle</p>
  inspired an analogy. Aristotle then perceiving the moon as round, saw the key relation, in a flash, a bright idea.</p>
 
 
-<p class = "center"> Move the slider!</p>
-<canvas id="flashlight_on_ball"></canvas>
-<script src = "js/three.js"></script>
+<!-- <p class = "center"> Move the slider!</p> -->
 
+<script src = "js/three.js"></script>
+<canvas id="flashlight_on_ball"></canvas>
 <input class = "center" id="flashlight_slider" min="0" max="6.28" step = "0.1" type="range">
 <script>
+        (() => {
         let scene = new THREE.Scene();
         let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
         
@@ -70,28 +71,86 @@ namely, because the moon shines by the light of the sun." &#8211 Aristotle</p>
             emissive: 0xff000, 
             emissiveIntensity: 0 } 
         );
-        let cube = new THREE.Mesh( geometry, material);
-        scene.add( cube );
+        let sphere = new THREE.Mesh( geometry, material);
+        scene.add( sphere );
         
         camera.position.z = 5;
     
         let flashlight_slider = document.getElementById("flashlight_slider");
     
-        let animate = function() {
-            requestAnimationFrame( animate );
+        let update = function() {
+            console.log("called");
             let angle = flashlight_slider.value;
             directionalLight.position.x = Math.cos(-angle -1.6 );
             directionalLight.position.z = Math.sin(-angle -1.6);
             renderer.render( scene, camera );
         };
-        animate();
+        update();
+        flashlight_slider.addEventListener("input", update);
+        })();
     </script>
 <h2>Earth is a sphere.</h2>
 <p>Earth is similar. Aristotle saw Earth left a shadow on the moon.</p> 
 <img class = "center" src="img/2007-03-03_-_Lunar_Eclipse_small-43img.gif" alt="Lunar eclipses, courtesy wikipedia">
 <p>No matter the angle, Earth's shadow on the moon is round. This is only true of spheres. If Earth was a disk,
-some angles would give ellipses.</p>
-<p>*exploreable, letting user control light*</p>
+some angles would give ellipses, or even a line.</p>
+
+<canvas id="flashlight_on_disc"></canvas>
+<input class = "center" id="flashlight_disk_slider" min="0" max="6.28" step = "0.1" type="range">
+<script>
+        (() => {
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        let canvas = document.getElementById("flashlight_on_disc");
+        let renderer = new THREE.WebGLRenderer({ canvas: canvas});
+        renderer.shadowMapEnabled = true;
+        renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+        document.body.appendChild( renderer.domElement );
+    
+        let directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+        directionalLight.castShadow = true;
+        scene.add( directionalLight );
+        directionalLight.position.x = 1;
+        directionalLight.position.y = 0;
+        directionalLight.position.z = 0;
+    
+        let geometry = new THREE.CylinderGeometry( 1, 1, 0.4, 32 );
+        let material = new THREE.MeshLambertMaterial( { 
+            color: 0xffffff, 
+            emissive: 0xff0000, 
+            emissiveIntensity: 0 
+        });
+        let disc = new THREE.Mesh( geometry, material);
+        disc.castShadow = true;
+        scene.add( disc );
+        disc.rotation.x = Math.PI / 2;
+        disc.rotation.z = Math.PI / 4;
+        camera.position.z = 4;
+
+        let wall_shape = new THREE.CylinderGeometry( 20, 20, 40, 64);
+        let wall_material = new THREE.MeshLambertMaterial( {
+            color: 0xffffff,
+            emissive: 0xff0000,
+            emissiveIntensity: 0,
+            side: THREE.BackSide
+        });
+        let wall = new THREE.Mesh(wall_shape, wall_material);
+        wall.receiveShadow = true;
+        scene.add( wall );
+
+        let flashlight_slider = document.getElementById("flashlight_disk_slider");
+        
+        let update = function() {
+            let angle = flashlight_slider.value;
+            directionalLight.position.x = Math.cos(-angle -1.6 );
+            directionalLight.position.z = Math.sin(-angle -1.6);
+            renderer.render( scene, camera );
+        };
+        update();
+        flashlight_slider.addEventListener("input", update);
+        })();
+    </script>
 
 <p>A natural question follows, what's the circumference of these spheres? We wouldn't have the answers for another next century.</p>
 
