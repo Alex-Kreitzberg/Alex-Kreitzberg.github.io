@@ -47,16 +47,20 @@ namely, because the moon shines by the light of the sun." &#8211 Aristotle</p>
 <!-- <p class = "center"> Move the slider!</p> -->
 
 <script src = "js/three.js"></script>
-<canvas id="flashlight_on_ball"></canvas>
+<canvas class = "center" id="flashlight_on_ball"></canvas>
 <input class = "center" id="flashlight_slider" min="0" max="6.28" step = "0.1" type="range">
 <script>
         (() => {
-        let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        
         let canvas = document.getElementById("flashlight_on_ball");
+
+        let width = canvas.clientWidth;
+        let height = canvas.clientHeight;
+
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000);
+        
         let renderer = new THREE.WebGLRenderer({ canvas: canvas});
-        renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+        renderer.setSize( width, height);
         document.body.appendChild( renderer.domElement );
     
         let directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
@@ -95,17 +99,22 @@ namely, because the moon shines by the light of the sun." &#8211 Aristotle</p>
 <p>No matter the angle, Earth's shadow on the moon is round. This is only true of spheres. If Earth was a disk,
 some angles would give ellipses, or even a line.</p>
 
-<canvas id="flashlight_on_disc"></canvas>
+<canvas class = "center" id="flashlight_on_disc"></canvas>
 <input class = "center" id="flashlight_disk_slider" min="0" max="6.28" step = "0.1" type="range">
 <script>
         (() => {
-        let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        
         let canvas = document.getElementById("flashlight_on_disc");
+
+        let width = canvas.clientWidth;
+        let height = canvas.clientHeight;
+
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000);
+        
+        
         let renderer = new THREE.WebGLRenderer({ canvas: canvas});
         renderer.shadowMapEnabled = true;
-        renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+        renderer.setSize( width, height);
         document.body.appendChild( renderer.domElement );
     
         let directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
@@ -168,7 +177,7 @@ But, unlike in Syene, there were shadows.</p>
     Can we do better? We can.
 </p>
 
-<img class = "center" src="img/Proof_earth_circumference.svg" alt="Equal interor angles gives angle of sector between Alexandria and Seyena">
+<img class = "center" src="img/Proof_earth_circumference.svg" alt="Equal interior angles gives angle of sector between Alexandria and Syena">
 
 <p>The angle made between a ray of light on a column in Alexandria, was about a fiftieth of a circle. The angle of Earth's sector from Alexandria to Syene is the same! Why? Because it is an alternate interior angle to the Alexandrian angle. 
 Merchants traveled between Alexandria and Syene all the time, so it was important to know the distance between these cities. It is 5000 stadia. Being a fiftieth of a circle, all
