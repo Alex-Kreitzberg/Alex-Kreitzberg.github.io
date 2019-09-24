@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="166.36929mm"
+   width="134.09111mm"
    height="127.07559mm"
-   viewBox="0 0 166.36929 127.07559"
+   viewBox="0 0 134.0911 127.07559"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="13.964214"
-     inkscape:cy="-95.752101"
+     inkscape:zoom="1.4"
+     inkscape:cx="243.45645"
+     inkscape:cy="263.75584"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,7 +37,7 @@
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      fit-margin-top="0"
-     fit-margin-left="0"
+     fit-margin-left="-0.1"
      fit-margin-right="0"
      fit-margin-bottom="0" />
   <metadata
@@ -56,7 +56,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-10.211844,-13.952531)">
+     transform="translate(-42.490023,-13.952531)">
     <circle
        id="path3715"
        cx="105.92782"
@@ -73,19 +73,6 @@
        d="m 151.94643,15.974702 -12.85119,7.559524"
        id="path4534"
        inkscape:connector-curvature="0" />
-    <circle
-       style="opacity:0;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.36500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path4540"
-       cx="22.300594"
-       cy="40.543152"
-       r="11.90625" />
-    <ellipse
-       style="opacity:0;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.36500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-       id="path4544"
-       cx="32.127975"
-       cy="30.715773"
-       rx="3.4017856"
-       ry="11.339286" />
     <path
        style="opacity:1;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332"
        id="path4558"
