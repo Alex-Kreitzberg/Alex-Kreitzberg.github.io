@@ -1,8 +1,15 @@
 <!DOCTYPE HTML>
+<head>
+    <p>
+        Values go from 1 to 10, with 1 being black and 10 being white.
+        Click on either "Background Value" or "Square Value" to reveal
+        the value of the background or the square respectively. 
+    </p>
+</head>
 <body>
     <div>
-        Background value<details id = "backgroundIdentity"></details>
-        Square value<details id = "squareIdentity"></details>
+        <details id = "backgroundIdentity"><summary>Background value</summary></details>
+        <details id = "squareIdentity"><summary>Square value</summary></details>
         <input id="Refresh" type="button" value="Refresh" onclick="location.reload();" />
     </div>
     <svg width="500" height="500">
@@ -25,9 +32,9 @@
     let squareLabel = document.getElementById("squareIdentity");
 
     background.style.fill =`rgb(${backgroundColor},${backgroundColor},${backgroundColor})`;
-    backgroundLabel.textContent= `${1 + backgroundTag}`;
+    backgroundLabel.appendChild(document.createTextNode(`${1 + backgroundTag}`));
 
     square.style.fill =`rgb(${squareColor},${squareColor},${squareColor})`;
-    squareLabel.textContent= `${1 + squareTag}`;
+    squareLabel.appendChild(document.createTextNode(`${1 + squareTag}`));
 </script>
 </body>
