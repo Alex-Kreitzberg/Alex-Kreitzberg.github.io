@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sheets/styles.css">
+    <script src="scripts/serifs.js" defer></script>
+    <title>Discovering Serifs</title>
+</head>
+<body>
+    <header>
+        <h1>Discovering Serifs</h1>
+        <address class = "author">By Alex Kreitzberg</address>
+        </header>
+    <article>
+    <p>
+        Ever wonder where the latin fonts come from? If you're
+        like me the answer is no. Which is too bad;
+        it's a surprisingly answerable question.
+    </p>
+
+    <p>
+        Even more answerable though, is where did the design
+        of capital letters come from? The answer to this is so simple, 
+        I'm surprised I've never seen it occur in trivia.
+    </p>
+
+    <p>
+        The answer: The inscription on 
+        <a href="https://en.wikipedia.org/wiki/Trajan%27s_Column"> Trajan's column</a>.
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Trajan_inscription_duotone.jpg" alt="Inscription on Trajan's column.">
+    </p>
+
+    <p>
+        The impetus to ask this question came from my grandfather's technical
+        drafting book "Engineering Drawing" by Thomas French. 
+        Where, between French's illustrations of traditional lettering, French 
+        explained - "all our fonts are based on 'Old Roman' ".
+    </p>
+        <emp>All</emp> our fonts? I'm a sucker for "universal beginnings" of this sort.
+    </p>
+    <p>
+        But this article isn't about the history of fonts. It's about my
+        attempts to understand a technique.
+        A technique which, quietly, makes our lives a little bit better every day.
+    </p>
+
+    <h2>How do I make serifs?</h2>
+    <p>
+        My grandfather's old textbook found block lettering much more
+        important to explain carefully. Leaving "Old Roman" to the 
+        cartographers. But, there was a paragraph's worth of clues:
+    </p>
+    <img src="images/SerifsByFrench.jpg" 
+    alt="Examples of how to draw serifs in Thomas French's 'Engineering Drawing' page 58.">
+    <p>
+        We have something old and something new.
+        The proportions from the block letters were kept. 
+        But there were at least two new major features, The directions
+        of the stems were to have different thicknesses, and little plank
+        things were added on all the horizontal and vertical lines.
+    </p>
+    <p>
+        The image suggested to me that the "right" curve was to be
+        connected from these planks to the stems. At this point though,
+        I'm stuck. What exactly makes this curve "right"? Is it Because it's 
+        "Old Roman"?
+    </p>
+    <p>
+        What follows are my various guesses at how to make Serifs. 
+        To my eyes, each of these techniques is beautiful and useful in its 
+        own way; the journey is more important than the right curve.
+    </p>
+
+    <h2>Guess one: Euclidean ideal Serifs</h2>
+    <p>
+        I started on this journey because I'm curious about
+        traditional drafting. The tech art of yesterday.
+    </p>
+
+    <p>
+        You can only look at so many compass and straight
+        edge constructions before you have the idea that
+        a serif is just a corner of a circle.
+    </p>
+    <p>
+        It turns out the planks and the stem are enough data to specify
+        a circle. You think of the stem as a tangent line to the circle, and
+        the plank as a tangent line, starting at the circle. 
+    </p>
+    <img src="images/Circle Serif construction.jpg" alt = "construction of circle serif.">
+    <p>From now on,
+        I'm going to refer the two ends of the plank, and the point of contact with
+        the stem, as <emp>control points</emp>. The interactive image below,
+        shows what the resulting serif looks like. Feel free to move the control points
+        to match orientations shown in French's letter outlines.
+    </p>
+    <svg width = "30ex" height = "30ex" xmlns="https://www.w3.org/2000/svg">
+        <path
+            id = "arc path"
+            d = "M63 , 21A121.05336734888178 , 121.05336734888178 0, 0, 1  182.0321551373176,143.01276297261796L183,23Z">
+        </path>
+
+        <circle
+        id = "arc control point 1"
+        class = "arcDraggable" 
+        cx = "63" 
+        cy = "21" 
+        r = "5" >
+    </circle>
+
+    <circle 
+        id = "arc control point 2"
+        class = "arcDraggable"
+        cx = "183"
+        cy = "23"
+        r = "5">
+    </circle>
+
+    <circle 
+        id = "arc control point 3"
+        class = "arcDraggable"
+        cx = "182"
+        cy = "147"
+        r = "5">
+    </circle>
+    </svg>
+    <p>You can drag the control points in the above image!</p>
+    <h2>Guess two: hand painted Serifs</h2>
+    <p>
+        Geometrically constructed fonts were popular for centuries. Perhaps 
+        The most notable examples are those by the famous artist
+        <a href="https://library.reed.edu/special-collections/primary-source-sets/sets/letterforms/durer/index.html">
+        Albrecht Dürer</a>. It was commonly believed that this was the approach
+        used by the Romans for the Trajan Column's Inscription.
+    </p>
+    <p>
+        It wasn't until the late 1960s that Edward M. Catich gave a 
+        compelling argument in his book "The Origin of the Serif"
+        that they were simply painted by hand.
+    </p>
+        <p>
+        If you overlap the same letters, or interpoints on Trajan's Inscription
+        you'll find they look different from each other in very human ways. 
+        Suggesting stencils, or careful constructions, weren't used.
+        </p>
+        <p>
+        For clear illustrations of this look up either Catich's text or 
+        Tufte's "Visual Explanations" on page 96.
+    </p>
+    <p>
+        For my purposes how it was done is less important than that it
+        can be done this way. And we have contemporary examples of
+        professionals that can paint Roman capitals with a broad side brush.
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/jklAtL-ytfU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p>
+        Notice how the artist makes the serifs much larger 
+        than the stems by rotating his brush as he transitions.
+        You can still get a feel for how serifs transition into stems
+        even without the ability to rotate a brush. Try painting the 
+        letter 'I' below in the paint program below it.
+    </p>
+        <div class="LargeLetter">I</div>
+    <canvas id="letterPaintingExercise" width = "300" height = "300"></canvas>
+    <input type="button"
+        id = "refreshPaintingButton"
+        value = "Refresh">
+    <p>
+        After trying quite a few times at this it's intuitive, that
+        with practice, painting without constructions is practical.
+    </p>
+    <h2>Guess three: rotating the brush</h2>
+    <p>Before I fully understood Catich's argument, I had a couple
+        guesses over how exactly painting with the brush might work.
+        In the previous guess, I wanted to make it clear that rotating
+        the brush isn't essential to get a characteristic Serif shape.
+    </p>
+    <p>
+        Because, after watching the pro work, I glibly thought rotating
+        the brush was required. I confused myself even more horribly though!
+        My guess for how to rotate this brush was even backwards from the pro!
+    </p>
+    <p>
+        The following slider animation illustrates what I thought the surface
+        of the brush was supposed to look like. I was very proud of myself,
+        because the shape is pretty darn beautiful!
+    </p>
+    <canvas id="FixedWidthBrushStrokeSerif" width="300" height = "300"></canvas>
+    <input type ="range"
+    id = "SerifBrushProgression"
+    min = "0"
+    max = "300"
+    value = "0"
+    autocomplete="off">
+    <p>
+        Here is one of my attempts to do this with a pencil
+        sharpened to have a long tip of exposed graphite. I moved
+        my pencil over the paper in the same manner as the above
+        animation.
+    </p>
+    <img src="images/contrasted pencil Serif illustration.jpg" alt="Pencil sketch of serif using a brush technique">
+    <p>
+        Those jumps in the lines of the animation aren't artificial, As one 
+        line gets close to vertical (or horizontal) the other end speeds up 
+        rapidly.
+    </p>
+    <h2>Guess four: Highschool doodles, or bezier Serifs</h2>
+    <p>
+        This guess is the reason why I decided to write up this article. 
+        Because I had discovered that by slightly modifying the previous
+        brush rotating technique, then we get a quadratic bezier curves.
+    </p>
+    <p>
+        Instead of having a fixed width brush, and rotating it along the control
+        points of the Serif. Let the width of the brush line change, and allow the
+        ends to linearly interpolate between their respective extremes.
+    </p>
+    <p>
+        In high school, I would occasionally see students, bored with their
+        lecture, doodle the following image in their note books.
+    </p>
+    <img src="images/Mysterious highschool doodle.jpg" 
+    alt="Lines defined on a right angled corner, where for both ends of 
+    the lines, an equal movement down one face of the corner, moves the 
+    other point an equal distance down the other face of the corner">
+    <p>
+        Comparing these lines with the previous animation gave me a flash,
+        of insight. I initially thought these were literally the same, they aren't; 
+        but they're analogous! Rather than keep the length of the brush constant, 
+        the sum of distances from the corner is constant instead.
+    </p>
+    <p> 
+        What is true of both of them, is that you can imagine the "brush lines"
+        moving through space, and this was enough for make me see that I 
+        was looking at the spine of De Casteljau's algorithm.
+    </p>
+    <p>
+        Freya has a wonderful discussion of Bezier curves broadly, with a 
+        particularly nice animation of De Casteljau's algorithm on Quadratic 
+        Bezier curves.
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/aVwxzDHniEw?t=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    
+    <p>
+        In the classic construction of De Casteljau's algorithm, 
+        you construct the curve by plotting the midpoint of the "brush line".
+        But I had an idea - if I wanted to draw a bezier curve with the broad
+        side of a long sharped pencil. I could fake shortening the pencil by
+        overshooting the stem control points. The excess would be filled in 
+        by the stem anyway.
+    </p>
+    <img src="images/broad edge pencil example.jpg" 
+    alt="image showing how to shorten effective pencil length by drawing into stem">
+    <p>The serif that this would draw, would be the serif you'd obtain from the 
+        highschool doodle, if you drew so many lines you couldn't see the individual
+        lines anymore. Is the curve of that serif really the same as the quadratic bezier
+        curve given by De Casteljau's algorithm?
+    </p>
+    <p>
+        The answer is yes, for a beautifully simple reason.
+        The "brush line" of De Casteljau's algorithm is the 
+        derivative of the bezier curve. And because the graph of
+        quadratics are convex, any tangent line (or derivative line) must
+        lie entirely one one side. 
+    </p>
+    <p>The tangent lines will never invade the region on the other side,
+        of the bezier curve, and each one contains a point of the bezier curve,
+        by definition of its construction.
+    </p>
+    <p>
+        I invite you to prove that the line between lines of De Casteljau's
+        algorithm is indeed the derivative at the point it's constructing.
+        It's a satisfyingly simple argument.
+    </p>
+    <p>
+        Below is what this serif would look like. This is perhaps the easiest 
+        serif to construct on a computer.
+    </p>
+    <svg width = "30ex" height = "30ex" xmlns="https://www.w3.org/2000/svg">
+        <path
+            id = "bezier path"
+            d = "M 10, 10 Q 50, 10 50, 50 L 50, 10 Z">
+        </path>
+
+        <circle
+            id = "bezier control point 1"
+            class = "bezierDraggable" 
+            cx = "10" 
+            cy = "10" 
+            r = "5" >
+        </circle>
+
+        <circle 
+            id = "bezier control point 2"
+            class = "bezierDraggable"
+            cx = "50"
+            cy = "10"
+            r = "5">
+        </circle>
+
+        <circle 
+            id = "bezier control point 3"
+            class = "bezierDraggable"
+            cx = "50"
+            cy = "50"
+            r = "5">
+        </circle>
+    </svg>
+    <h2>Final thoughts</h2>
+    <p>
+        None of the more technical constructions really match exactly how 
+        the Romans made their Serifs. However, in them I see a clear
+        statement and identity. They embody the beauty of simple patterns.
+    </p>
+    <p>
+        Though even though mathematics is beautiful, it isn't the only beauty
+        there is clearly room in these letters to express something more individual
+        more subjective, and you see calligraphers do this all the time.
+    </p>
+    <p>
+        In either case, we have technology to support our choice - we have no 
+        limits here. I am happy to call any of the above techniques correct. I hope
+        you enjoyed this journey as much as I did.
+    </p>
+    </article>
+</body>
+</html>

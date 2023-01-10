@@ -1,0 +1,68 @@
+body{
+    line-height: 1.4ex;
+    background-color: rgb(245, 245, 245);
+    color: rgb(25, 25, 25);
+    font: 1.2em "Times New Roman", Serif; 
+}
+.LargeLetter{
+    text-align:center;
+    font-size: 10em;
+    display:block;
+    margin: auto;
+    padding: 0.5em;
+}
+emp{
+    font-style:italic;
+}
+
+header{
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+header > h1{
+    margin-top:0;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:0;
+    color:white;
+    font: 4em "Times New Roman", Serif;
+}
+header > address{
+    font-size: 2em;
+}
+
+article{
+    margin-left:calc(50% - 30ex);
+    margin-right:auto;
+    max-width:60ex;
+    line-height:3ex;
+}
+article > h1, h2, h3{
+    line-height:2ex;
+}
+img {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+svg, canvas{
+    display:block;
+    margin: auto;
+    border:solid;
+    border-color:darkgray;
+}
+input{
+    display: block;
+    margin: auto;
+}
+
+.bezierDraggable, .arcDraggable{
+    cursor: move;
+    stroke: black;
+    fill: grey;
+}
+path{
+    stroke:black;
+    fill:black;
+}
