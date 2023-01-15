@@ -9,6 +9,7 @@ function convertPixelToSvgCoord(event) {
     p = p.matrixTransform(svg.getScreenCTM().inverse());
     return p;
 }
+
 function constructDraggableReactive(draggableClassName, reactiveUpdate){
     const draggables = document.querySelectorAll('.' + draggableClassName);
     draggables.forEach(draggable => {
@@ -16,14 +17,15 @@ function constructDraggableReactive(draggableClassName, reactiveUpdate){
         draggable.addEventListener('pointerdown', (e) => {
             dragging = true;
             e.currentTarget.setPointerCapture(e.pointerId);
+
         });
         draggable.addEventListener('pointerup', (e) => { dragging = false; });
         draggable.addEventListener('pointercancel', (e) => { dragging = false; });
         draggable.addEventListener('pointermove', (e) => {
             if (!dragging) return;
-            let p = convertPixelToSvgCoord(e)
-            draggable.setAttribute('cx', p.x);
-            draggable.setAttribute('cy', p.y);
+            let {x, y} = convertPixelToSvgCoord(e)
+            draggable.setAttribute('cx', x);
+            draggable.setAttribute('cy', y);
             reactiveUpdate();
         });
     });

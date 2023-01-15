@@ -3,17 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 1.5rem;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(25, 25, 25);
+}
 body{
+    width:100%;
+    min-height: 100vh;
     background-color: rgb(245, 245, 245);
-    color: rgb(25, 25, 25);
-    font: 1.2em "Times New Roman", Serif; 
 }
 .LargeLetter{
+    margin: 3rem;
     text-align:center;
-    font-size: 10em;
+    font-size: 8rem;
     display:block;
-    margin: auto;
-    padding: 0.5em;
 }
 emp{
     font-style:italic;
@@ -25,30 +29,39 @@ header{
     background-color: black;
 }
 header > h1{
-    margin-top:0;
-    margin-left:0;
-    margin-right:0;
-    margin-bottom:0;
     color:white;
-    font: 2em "Times New Roman", Serif;
+    font-size:4rem;
 }
 header > address{
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 article{
-    margin:40px auto;
-    max-width:650px;
-    padding:0 10px;
-    line-height:1.6;
+    margin:4rem auto;
+    max-width:30rem;
+    line-height:1.4rem;
+    padding: 0 1rem;
+}
+p{
+    margin-bottom:0.5rem;
 }
 article > h1, h2, h3{
-    line-height:1.2;
+    margin-top: 1rem;
+    line-height:1.4rem;
 }
 img {
+    display: block;
     max-width: 100%;
     max-height: 100vh;
     margin: auto;
+    padding: 1rem;
+}
+iframe{
+    display:block;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+    padding:1rem;
 }
 svg, canvas{
     display:block;
