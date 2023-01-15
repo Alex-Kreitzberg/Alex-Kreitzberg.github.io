@@ -93,8 +93,6 @@ function updateBezier(){
 
 function convertScreenToCanvasCoord(canvas, event){
     let rect = canvas.getBoundingClientRect();
-    console.log(event.clientX - rect.left);
-    console.log( event.clientY - rect.top);
     return {
         x: event.clientX - rect.left, 
         y: event.clientY - rect.top
@@ -118,7 +116,6 @@ letterCanvas.addEventListener("pointerup",()=>{canvasDragging=false;});
 letterCanvas.addEventListener("pointercancel", ()=>{canvasDragging=false;});
 letterCanvas.addEventListener("pointermove", (e)=>{
     if (!canvasDragging) return;
-    console.log("hit moving");
     const p = convertScreenToCanvasCoord(letterCanvas, e);
     xNext = p.x;
     yNext = p.y;
