@@ -24,13 +24,18 @@ emp{
 }
 
 header{
+    hyphens: auto;
+    max-width:100%;
+    max-height: 100vh;
+    margin: auto;
     text-align: center;
     color: white;
     background-color: black;
 }
 header > h1{
+    hyphens: auto;
     color:white;
-    font-size:4rem;
+    font-size:2rem;
 }
 header > address{
     font-size: 2rem;
@@ -65,6 +70,8 @@ iframe{
 }
 svg, canvas{
     display:block;
+    max-width: 100%;
+    max-height: 100vh;
     margin: auto;
     border:solid;
     border-color:darkgray;
