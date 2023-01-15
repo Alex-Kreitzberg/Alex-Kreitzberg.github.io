@@ -17,7 +17,6 @@ function constructDraggableReactive(draggableClassName, reactiveUpdate){
         draggable.addEventListener('pointerdown', (e) => {
             dragging = true;
             e.currentTarget.setPointerCapture(e.pointerId);
-
         });
         draggable.addEventListener('pointerup', (e) => { dragging = false; });
         draggable.addEventListener('pointercancel', (e) => { dragging = false; });
@@ -92,30 +91,49 @@ function updateBezier(){
         bezierCurve.setAttribute("d", d);
 }
 
+function convertScreenToCanvasCoord(canvas, event){
+    let rect = canvas.getBoundingClientRect();
+    console.log(event.clientX - rect.left);
+    console.log( event.clientY - rect.top);
+    return {
+        x: event.clientX - rect.left, 
+        y: event.clientY - rect.top
+    };
+}
+
 const letterCanvas = document.getElementById("letterPaintingExercise");
 const letterCtx = letterCanvas.getContext("2d");
 letterCtx.imageSmoothingEnabled = true;
-letterCanvas.addEventListener("mousedown", (e)=>{
-    let xPrev = e.offsetX;
-    let yPrev = e.offsetY;
-    const drawOnDrag = (e) => {
-        console.log("hit");
-        letterCtx.beginPath();
-        letterCtx.moveTo(xPrev - 10, yPrev);
-        letterCtx.lineTo(xPrev + 10, yPrev);
-        letterCtx.lineTo(e.offsetX + 10, e.offsetY);
-        letterCtx.lineTo(e.offsetX - 10, e.offsetY);
-        letterCtx.fill();
-        letterCtx.rect(xPrev-10, yPrev, 20, 1);
-        letterCtx.fill();
-        xPrev = e.offsetX;
-        yPrev = e.offsetY;
-    }
-    letterCanvas.addEventListener("mousemove", drawOnDrag);
-    document.addEventListener("mouseup",(e) =>{
-        letterCanvas.removeEventListener("mousemove", drawOnDrag);
-    });
+let canvasDragging = false;
+let xPrev = 0;
+let yPrev = 0;
+letterCanvas.addEventListener("pointerdown", (e)=>{
+    canvasDragging = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    const p = convertScreenToCanvasCoord(letterCanvas, e);
+    xPrev= p.x;
+    yPrev = p.y;
 });
+letterCanvas.addEventListener("pointerup",()=>{canvasDragging=false;});
+letterCanvas.addEventListener("pointercancel", ()=>{canvasDragging=false;});
+letterCanvas.addEventListener("pointermove", (e)=>{
+    if (!canvasDragging) return;
+    console.log("hit moving");
+    const p = convertScreenToCanvasCoord(letterCanvas, e);
+    xNext = p.x;
+    yNext = p.y;
+    letterCtx.beginPath();
+    letterCtx.moveTo(xPrev - 10, yPrev);
+    letterCtx.lineTo(xPrev + 10, yPrev);
+    letterCtx.lineTo(xNext + 10, yNext);
+    letterCtx.lineTo(xNext - 10, yNext);
+    letterCtx.fill();
+    letterCtx.rect(xPrev-10, yPrev, 20, 1);
+    letterCtx.fill();
+    xPrev = xNext;
+    yPrev = yNext;
+});
+
 const refreshButton = document.getElementById("refreshPaintingButton");
 refreshButton.onclick = () => {letterCtx.clearRect(0, 0, letterCtx.canvas.width, letterCtx.canvas.height);};
 
