@@ -1,16 +1,30 @@
+/** Convert from event coordinate space (on the page) to SVG coordinate
+ * space (within the svg, honoring responsive resizing, width/height,
+ * and viewBox */
+function convertPixelToSvgCoord(event) {
+    const svg = event.currentTarget.ownerSVGElement;
+    let p = svg.createSVGPoint();
+    p.x = event.clientX;
+    p.y = event.clientY;
+    p = p.matrixTransform(svg.getScreenCTM().inverse());
+    return p;
+}
 function constructDraggableReactive(draggableClassName, reactiveUpdate){
     const draggables = document.querySelectorAll('.' + draggableClassName);
     draggables.forEach(draggable => {
-        draggable.addEventListener('mousedown', (e) =>{
-            const onMouseMove = (e)=>{
-                draggable.setAttribute('cx', e.offsetX);
-                draggable.setAttribute('cy', e.offsetY);
-                reactiveUpdate();
-            };
-            draggable.closest('svg').addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', (e) =>{
-                draggable.closest('svg').removeEventListener('mousemove', onMouseMove);
-            });
+        let dragging = false;
+        draggable.addEventListener('pointerdown', (e) => {
+            dragging = true;
+            e.currentTarget.setPointerCapture(e.pointerId);
+        });
+        draggable.addEventListener('pointerup', (e) => { dragging = false; });
+        draggable.addEventListener('pointercancel', (e) => { dragging = false; });
+        draggable.addEventListener('pointermove', (e) => {
+            if (!dragging) return;
+            let p = convertPixelToSvgCoord(e)
+            draggable.setAttribute('cx', p.x);
+            draggable.setAttribute('cy', p.y);
+            reactiveUpdate();
         });
     });
 }
