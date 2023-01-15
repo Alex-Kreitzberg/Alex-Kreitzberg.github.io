@@ -1,5 +1,4 @@
 body{
-    line-height: 1.4ex;
     background-color: rgb(245, 245, 245);
     color: rgb(25, 25, 25);
     font: 1.2em "Times New Roman", Serif; 
@@ -26,20 +25,20 @@ header > h1{
     margin-right:0;
     margin-bottom:0;
     color:white;
-    font: 4em "Times New Roman", Serif;
+    font: 2em "Times New Roman", Serif;
 }
 header > address{
     font-size: 2em;
 }
 
 article{
-    margin-left:calc(50% - 30ex);
-    margin-right:auto;
-    max-width:60ex;
-    line-height:3ex;
+    margin:40px auto;
+    max-width:650px;
+    padding:0 10px;
+    line-height:1.6;
 }
 article > h1, h2, h3{
-    line-height:2ex;
+    line-height:1.2;
 }
 img {
     max-width: 100%;
