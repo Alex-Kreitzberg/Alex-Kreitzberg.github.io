@@ -13,6 +13,9 @@ function convertPixelToSvgCoord(event) {
 function constructDraggableReactive(draggableClassName, reactiveUpdate){
     const draggables = document.querySelectorAll('.' + draggableClassName);
     draggables.forEach(draggable => {
+        draggable.addEventListener('touchstart',(e)=>{
+            e.preventDefault();
+        });
         let dragging = false;
         draggable.addEventListener('pointerdown', (e) => {
             dragging = true;
@@ -105,6 +108,9 @@ letterCtx.imageSmoothingEnabled = true;
 let canvasDragging = false;
 let xPrev = 0;
 let yPrev = 0;
+letterCanvas.addEventListener('touchstart', (e)=>{
+    e.preventDefault();
+})
 letterCanvas.addEventListener("pointerdown", (e)=>{
     canvasDragging = true;
     e.currentTarget.setPointerCapture(e.pointerId);
