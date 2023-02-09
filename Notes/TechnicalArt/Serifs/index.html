@@ -22,8 +22,8 @@
 
     <p>
         Even more answerable though, is where did the design
-        of capital letters come from? The answer to this is so simple, 
-        I'm surprised I've never seen it occur in trivia.
+        of capital letters come from? The answer is so simple, 
+        it's trivia.
     </p>
 
     <p>
@@ -33,24 +33,27 @@
     </p>
 
     <p>
-        The impetus to ask this question came from my grandfather's technical
+        I've been studying my grandfather's technical
         drafting book "Engineering Drawing" by Thomas French. 
         Where, between French's illustrations of traditional lettering, French 
         explained - "all our fonts are based on 'Old Roman' ".
     </p>
-        <emp>All</emp> our fonts? I'm a sucker for "universal beginnings" of this sort.
+        <emp>How?</emp>
     </p>
     <p>
-        But this article isn't about the history of fonts. It's about my
-        attempts to understand a technique.
+        Because the Italians decided the Roman's had the most beautiful Capitals.
+        Combined it with Carolingian minuscules (believing the minuscules to be
+        from antiquity), just in time for the arrival of the printing press.
+    </p>
+    <p>
+        But this article isn't about that history, it's about a technique.
         A technique which, quietly, makes our lives a little bit better every day.
     </p>
 
-    <h2>How do I make serifs?</h2>
+    <h2>How do I make serifs and their fillets?</h2>
     <p>
-        My grandfather's old textbook found block lettering much more
-        important to explain carefully. Leaving "Old Roman" to the 
-        cartographers. But, there was a paragraph's worth of clues:
+        My grandfather's old textbook, after explaining block lettering carefully. left a terse 
+        discussion of serifs and their fillets:
     </p>
     <img src="images/SerifsByFrench.jpg" 
     alt="Examples of how to draw serifs in Thomas French's 'Engineering Drawing' page 58.">
@@ -62,18 +65,35 @@
         things were added on all the horizontal and vertical lines.
     </p>
     <p>
-        The image suggested to me that the "right" curve was to be
-        connected from these planks to the stems. At this point though,
-        I'm stuck. What exactly makes this curve "right"? Is it Because it's 
-        "Old Roman"?
+        These planks are called serifs, They're sometimes called slab serifs if you don't dress
+        them up with their fillets. A popular font with slab serifs is Courier:
+    </p>
+    <img src = "https://upload.wikimedia.org/wikipedia/commons/3/36/IBMCourier.svg" 
+        alt = "Courier font example">
+    <p>
+        But this isn't courier. Traditional serifs need fillets. To add the fillet, a curve was to be 
+        drawn from the end of the serif to the body of the stem. After drawing the letter in
+        outline, it was to be filled in, either in pencil or ink.
+    </p>
+    <p>Which is all well and good. But there's a catch. In French's words
+        "Roman letters are spoiled oftener by poor serifs and fillets than in any other way".
     </p>
     <p>
-        What follows are my various guesses at how to make Serifs. 
-        To my eyes, each of these techniques is beautiful and useful in its 
-        own way; the journey is more important than the right curve.
+        The image shows a "right" curve. How can a curve be "right"? On first reading
+        I was stuck. 
+    </p>
+    <p>
+        What follows are my various guesses as I stumbled to learn how to make 
+        serifs and their fillets. To my eyes, each of these techniques is beautiful 
+        and useful in their own way; the journey is more important than the curve.
     </p>
 
     <h2>Guess one: Euclidean ideal Serifs</h2>
+    <p>Often it helps to solve a problem by pretending you're a historian. 
+        How did <emp>they</emp> do it? If all our capitals came from Trajan's column,
+        then Trajan's column has all the answers.
+    </p>
+
     <p>
         I started on this journey because I'm curious about
         traditional drafting. The tech art of yesterday.
@@ -82,18 +102,20 @@
     <p>
         You can only look at so many compass and straight
         edge constructions before you have the idea that
-        a serif is just a corner of a circle.
+        a fillet is just a corner of a circle. And the Roman's loved the Greeks,
+        and the Greeks loved circles! Maybe that's how they did it!
     </p>
     <p>
-        It turns out the planks and the stem are enough data to specify
-        a circle. You think of the stem as a tangent line to the circle, and
-        the plank as a tangent line, starting at the circle. 
+        The serifs and the stem are enough data to specify
+        a circle. You think of the stem and serif as tangent lines to the circle. Measure
+        the length of the serif along the stem to find where the circle ends on the stem.
+        Then carry out perpendiculars from the serif and stem to find the center of the circle.
     </p>
     <img src="images/Circle Serif construction.jpg" alt = "construction of circle serif.">
     <p>From now on,
-        I'm going to refer the two ends of the plank, and the point of contact with
+        I'm going to refer to the two ends of the serif, and the point of contact with
         the stem, as <emp>control points</emp>. The interactive image below,
-        shows what the resulting serif looks like. Feel free to move the control points
+        shows what the resulting fillet looks like. Feel free to click and drag the control points
         to match orientations shown in French's letter outlines.
     </p>
     <svg class="interactiveDiagram" width = "15rem" height = "15rem" xmlns="https://www.w3.org/2000/svg">
@@ -126,39 +148,43 @@
         r = "10">
     </circle>
     </svg>
-    <p>You can drag the control points in the above image!</p>
+
     <h2>Guess two: hand painted Serifs</h2>
     <p>
         Geometrically constructed fonts were popular for centuries. Perhaps 
         The most notable examples are those by the famous artist
         <a href="https://library.reed.edu/special-collections/primary-source-sets/sets/letterforms/durer/index.html">
-        Albrecht Dürer</a>. It was commonly believed that this was the approach
-        used by the Romans for the Trajan Column's Inscription.
+        Albrecht Dürer</a>. It's often said that this was the approach
+        used by the Romans for the Trajan Column's Inscription. For example, at the time of writing 
+        February 9 2023, on <a href="https://en.wikipedia.org/wiki/History_of_Western_typography">wikipedia</a>
+        the author claims "The inscriptional capitals on Roman buildings and monuments 
+        were structured on a <emp>euclidean geometric scheme</emp> and the discrete component-based 
+        model of classical architecture". Emphasis mine.
     </p>
     <p>
-        It wasn't until the late 1960s that Edward M. Catich gave a 
-        compelling argument in his book "The Origin of the Serif"
-        that they were simply painted by hand.
-    </p>
-        <p>
-        If you overlap the same letters, or interpoints on Trajan's Inscription
-        you'll find they look different from each other in very human ways. 
-        Suggesting stencils, or careful constructions, weren't used.
-        </p>
-        <p>
-        For clear illustrations of this look up either Catich's text or 
-        Tufte's "Visual Explanations" on page 96.
+        Perhaps the most compelling counterargument to this was given in the late 1960s 
+        by Edward M. Catich in his book "The Origin of the Serif."
+        Where he defends that they were painted by hand in a more intuitive manner.
     </p>
     <p>
-        For my purposes how it was done is less important than that it
-        can be done this way. And we have contemporary examples of
-        professionals that can paint Roman capitals with a broad side brush.
+        The style of argument Catich used is nicely exemplified in "Visual Explanations" by
+        Tufte
+    </p>
+    <img src="images/Catich_Visual_Argument.jpg" alt="Catich's visual argument
+    that brushes were used for the Trajan column.">
+    <p>
+        Catich gives many arguments of this sort, including inferring the brush techniques
+        used by observing the sorts of common mistakes and patterns one makes with brushes.
+    </p>
+    <p>
+        Fortunately to learn this, we don't have to only look back. We have contemporary 
+        examples of professionals that can paint Roman capitals with a broad side brush.
     </p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/jklAtL-ytfU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <p>
-        Notice how the artist makes the serifs much larger 
-        than the stems by rotating his brush as he transitions.
-        You can still get a feel for how serifs transition into stems
+        Notice how the artist makes the fillets much larger 
+        than the serifs by rotating his brush as he transitions.
+        You can still get a feel for how fillets transition into serifs
         even without the ability to rotate a brush. Try painting the 
         letter 'I' below in the paint program below it.
     </p>
@@ -168,14 +194,14 @@
         id = "refreshPaintingButton"
         value = "Refresh">
     <p>
-        After trying quite a few times at this it's intuitive, that
-        with practice, painting without constructions is practical.
+        After trying quite a few times at this, hopefully it's intuitive that
+        with practice, painting without constructions is more practical.
     </p>
     <h2>Guess three: rotating the brush</h2>
     <p>Before I fully understood Catich's argument, I had a couple
         guesses over how exactly painting with the brush might work.
-        In the previous guess, I wanted to make it clear that rotating
-        the brush isn't essential to get a characteristic Serif shape.
+        In the guess two section, I wanted to make it clear that rotating
+        the brush isn't essential to get a characteristic fillet shape.
     </p>
     <p>
         Because, after watching the pro work, I glibly thought rotating
@@ -203,7 +229,7 @@
     <img src="images/contrasted pencil Serif illustration.jpg" alt="Pencil sketch of serif using a brush technique">
     <p>
         Those jumps in the lines of the animation aren't artificial, As one 
-        line gets close to vertical (or horizontal) the other end speeds up 
+        line gets close to vertical (or horizontal) its end speeds up 
         rapidly.
     </p>
     <h2>Guess four: Highschool doodles, or bezier Serifs</h2>
@@ -214,7 +240,7 @@
     </p>
     <p>
         Instead of having a fixed width brush, and rotating it along the control
-        points of the Serif. Let the width of the brush line change, and allow the
+        points of the serif. Let the width of the brush line change, and allow the
         ends to linearly interpolate between their respective extremes.
     </p>
     <p>
@@ -229,7 +255,7 @@
         Comparing these lines with the previous animation gave me a flash,
         of insight. I initially thought these were literally the same, they aren't; 
         but they're analogous! Rather than keep the length of the brush constant, 
-        the sum of distances from the corner is constant instead.
+        the sum of fractions of progress from the corner is constant instead.
     </p>
     <p> 
         What is true of both of them, is that you can imagine the "brush lines"
@@ -239,7 +265,7 @@
     <p>
         Freya has a wonderful discussion of Bezier curves broadly, with a 
         particularly nice animation of De Casteljau's algorithm on Quadratic 
-        Bezier curves.
+        Bezier curves. The animation is at time 2:40:
     </p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/aVwxzDHniEw?t=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
@@ -253,7 +279,7 @@
     </p>
     <img src="images/broad edge pencil example.jpg" 
     alt="image showing how to shorten effective pencil length by drawing into stem">
-    <p>The serif that this would draw, would be the serif you'd obtain from the 
+    <p>The fillet that this would draw, would be the fillet you'd obtain from the 
         highschool doodle, if you drew so many lines you couldn't see the individual
         lines anymore. Is the curve of that serif really the same as the quadratic bezier
         curve given by De Casteljau's algorithm?
@@ -270,13 +296,13 @@
         by definition of its construction.
     </p>
     <p>
-        I invite you to prove that the line between lines of De Casteljau's
-        algorithm is indeed the derivative at the point it's constructing.
-        It's a satisfyingly simple argument.
+        If you are familiar with calculus. I invite you to prove that the line between 
+        lines of De Casteljau's algorithm is indeed the derivative at the point it's 
+        constructing. It's a satisfyingly simple argument.
     </p>
     <p>
-        Below is what this serif would look like. This is perhaps the easiest 
-        serif to construct on a computer.
+        Below is what this fillet would look like. This is perhaps the easiest 
+        fillet to construct on a computer.
     </p>
     <svg class = "interactiveDiagram" width = "15rem" height = "15rem" xmlns="https://www.w3.org/2000/svg">
         <path
@@ -308,6 +334,11 @@
             r = "10">
         </circle>
     </svg>
+    <p>When I first realized this, I was so struck by its beauty. I assumed this 
+        <emp>must</emp> be how the romans did it. Alas, the trouble with using
+    beauty as a heuristic for truth, is you risk seeing the subjective qualities of your
+    own mind. I thought I discovered something about the past, but really I
+    discovered something about myself.</p>
     <h2>Final thoughts</h2>
     <p>
         None of the more technical constructions really match exactly how 
@@ -315,9 +346,9 @@
         statement and identity. They embody the beauty of simple patterns.
     </p>
     <p>
-        Though even though mathematics is beautiful, it isn't the only beauty
+        Even though mathematics is beautiful, it isn't the only beauty,
         there is clearly room in these letters to express something more individual
-        more subjective, and you see calligraphers do this all the time.
+        and subjective, you see calligraphers do this all the time.
     </p>
     <p>
         In either case, we have technology to support our choice - we have no 
