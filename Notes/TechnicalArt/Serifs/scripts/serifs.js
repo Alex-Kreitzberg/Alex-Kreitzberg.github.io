@@ -40,6 +40,7 @@ function controlPointToDictionary(controlPoint){
 }
 
 constructDraggableReactive("arcDraggable", updateArc)
+updateArc();
 function updateArc(){
     const arcCurve = document.getElementById("arc path");
 
@@ -82,6 +83,7 @@ function updateArc(){
 }
 
 constructDraggableReactive("bezierDraggable", updateBezier);
+updateBezier();
 function updateBezier(){
     const bezierCurve = document.getElementById("bezier path");
     const c1 = controlPointToDictionary(document.getElementById("bezier control point 1"));
