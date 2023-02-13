@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Value Study</title>
+    <style type = "text/css">
+        body{       
+            margin: 40px auto;
+            max-width: 1240px;
+            line-height:1.6;
+            font-size:20px;
+            font-family:'Century Gothic', 'Arial Narrow', Arial, sans-serif;
+            color:#040404;
+            background: #fefefd;
+            padding: 0 10px;
+        }
+        h1, h2, h3{
+            line-height:1.2;
+        }
+    </style>
+</head>
+<body>
+    <h1>What's the value</h1>
+    <p>
+        Adjust the grey value until you believe its value is the same as the color. 
+    </p>
+    <p>When you believe you've succeeded reveal the tab at the bottom. 
+        If the values of the grey scale and the colors are roughly the same, there
+        should be almost no impression of a line between them.
+    </p>
+    <p><input type="range" id = "valueGuessSlider" min = "0" max = "255"></p>
+    <svg width="620" height="620" style="float:left;">
+        <rect id="background" width="800" height="800" style="fill:rgb(128,128,128);" />  
+        <rect id="square" x="260" y="260" width = "100" height = "100" style="fill:rgb(128, 128, 128);"/>
+    </svg>
+    <svg width="620" height="620" style="float:right;">
+        <rect id="colorBackground" width="800" height="800" style="fill:rgb(128,128,128);" />  
+        <rect id="colorSquare" x="260" y="260" width = "100" height = "100" style="fill:rgb(128, 128, 128);"/>
+    </svg>
+    <div>
+        <input id="Refresh" type="button" value="Refresh" style="float:right;" onclick="location.reload();" />
+        <details id = "squareIdentity"><summary>Colors Adjacent to each other</summary>
+            <svg width = "520" height = "260">
+                <rect id="valueSquareCopy" width="260" height="260" style="fill:grey"/>
+                <rect id="colorSquareCopy" x="260" y = "0" width="260" height="260" style="fill:grey"/>
+            </svg>
+        </details>
+    </div>
+<script>
+    let rc = ()=>{return Math.floor(Math.random()*255);};
+    let background = document.getElementById("background");
+    let backgroundLabel = document.getElementById("backgroundIdentity");
+
+    let square = document.getElementById("square");
+    let valueSquareCopy = document.getElementById("valueSquareCopy");
+
+    let colorSquare = document.getElementById("colorSquare");
+    colorSquare.style.fill = `rgb(${rc()},${rc()},${rc()})`;
+    let colorSquareCopy = document.getElementById("colorSquareCopy");
+    colorSquareCopy.style.fill = colorSquare.style.fill;
+    
+    let backgroundColor = document.getElementById("colorBackground");
+    backgroundColor.style.fill = `rgb(${rc()},${rc()},${rc()})`;
+
+    let backgroundValue = Math.floor(Math.random()*255);
+    background.style.fill =`rgb(${backgroundValue},${backgroundValue},${backgroundValue})`;
+
+    let valueSlider = document.getElementById("valueGuessSlider");
+    valueSlider.addEventListener("input", (e) =>{
+        square.style.fill = `rgb(${event.target.value},${event.target.value},${event.target.value})`;
+        valueSquareCopy.style.fill = square.style.fill;
+    });
+</script>
+</body>
