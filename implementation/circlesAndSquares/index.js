@@ -215,6 +215,10 @@ function main() {
     time *= 0.001;  // convert to seconds
 
     webglUtils.resizeCanvasToDisplaySize(gl.canvas);
+    //Add adjustment for high density displays.
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = canvas.clientWidth*dpr;
+    canvas.height = canvas.clientHeight*dpr;
 
     // Tell WebGL how to convert from clip space to pixels
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
